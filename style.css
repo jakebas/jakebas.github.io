@@ -1,0 +1,18 @@
+/* CSS files add styling rules to your content */
+
+body {
+  font-family: 'Poppins',sans-serif, Black;
+  margin: 1em;
+  //font-weight:900;
+  font-size:2em;
+}
+
+a{
+  color:black;
+  text-decoration:underline;
+  font-style:bold;
+}
+a:hover,a:active{
+  color:#adadad;
+
+}
