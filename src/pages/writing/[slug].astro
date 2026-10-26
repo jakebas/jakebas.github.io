@@ -1,0 +1,8 @@
+---
+import Base from '../../layouts/Base.astro';
+import { posts, dateLabel } from '../../lib/writing';
+export function getStaticPaths() { return posts.map(post => ({params:{slug:post.slug},props:{post}})); }
+const { post } = Astro.props;
+const { Content, frontmatter } = post;
+---
+<Base title={frontmatter.title} description={frontmatter.description} active="writing" article><a class="back" href="/writing/">← All writing</a><h1>{frontmatter.title}</h1><time datetime={new Date(frontmatter.date).toISOString()}>{dateLabel(frontmatter.date)}</time><div class="article-body"><Content /></div></Base>

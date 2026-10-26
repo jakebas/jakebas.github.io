@@ -1,0 +1,7 @@
+---
+import Base from '../../layouts/Base.astro';
+import { posts, dateLabel } from '../../lib/writing';
+---
+<Base title="Writing" active="writing"><div class="reading"><p class="eyebrow">Essays & notes</p><h1>Writing.</h1><p class="lead">A home for ideas worth spending a little more time with.</p>
+{posts.length ? posts.map(post => <article class="post-row"><time datetime={new Date(post.frontmatter.date).toISOString()}>{dateLabel(post.frontmatter.date)}</time><h2><a href={`/writing/${post.slug}/`}>{post.frontmatter.title}</a></h2><p>{post.frontmatter.description}</p></article>) : <section class="section"><h2>Starting with a blank page.</h2><p class="muted">No essays or notes published yet. Future pieces will appear here, newest first.</p></section>}
+<p style="margin-top:36px" class="text-link"><a href="/feed.xml">Subscribe via RSS <span aria-hidden="true">↗</span></a></p></div></Base>

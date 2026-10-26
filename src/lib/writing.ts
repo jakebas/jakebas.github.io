@@ -1,0 +1,2 @@
+export const posts = Object.entries(import.meta.glob('../content/writing/*.md', { eager: true })).map(([path, post]: [string, any]) => ({ ...post, slug: path.split('/').pop()!.replace(/\.md$/, '') })).filter(post => !post.frontmatter.draft).sort((a,b) => new Date(b.frontmatter.date).getTime()-new Date(a.frontmatter.date).getTime());
+export const dateLabel = (date: string) => new Date(date).toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric',timeZone:'UTC'});
